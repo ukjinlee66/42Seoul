@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 10:32:48 by youlee            #+#    #+#             */
-/*   Updated: 2020/04/10 16:40:54 by youlee           ###   ########.fr       */
+/*   Updated: 2020/04/16 19:42:38 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,33 +26,56 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	return (dest);
 }
 
-int		ft_strlen(char *str)
+int		ft_strlen(char *str, char **buf2, int fd, int ch)
 {
 	int size;
 
 	size = 0;
-	while (str[size])
-		size++;
-	return (size);
+	if (ch)
+	{
+		while (str[size] != '\0')
+			size++;
+		return (size);
+	}
+	else
+	{
+		while (size < fd + 2)
+		{
+			free(buf2[size]);
+			buf2[size++] = NULL;
+		}
+		free(buf2);
+		return (0);
+	}
 }
 
-char	*ft_strdup(char *str)
+char	*ft_strdup(char *str, int ch, char **str2, char *temp)
 {
 	char	*res;
 	int		size;
 	int		idx;
 
-	idx = 0;
-	size = ft_strlen(str);
-	if (!(res = malloc(sizeof(char) * size + 1)))
-		return (NULL);
-	while (str[idx])
+	if (ch == 1)
 	{
-		res[idx] = str[idx];
-		idx++;
+		idx = 0;
+		res = NULL;
+		size = ft_strlen(str, NULL, 0, 1);
+		if (!(res = malloc(sizeof(char) * size + 1)))
+			return (NULL);
+		while (str[idx] != '\0')
+		{
+			res[idx] = str[idx];
+			idx++;
+		}
+		res[idx] = '\0';
+		return (res);
 	}
-	res[idx] = '\0';
-	return (res);
+	else
+	{
+		free(*str2);
+		*str2 = temp;
+		return (0);
+	}
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -62,11 +85,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t	idx2;
 	size_t	size;
 
-	if (!s1)
-		return ((char*)s2);
-	if (!s2)
-		return ((char*)s1);
-	size = ft_strlen(s1) + ft_strlen(s2) + 1;
+	size = ft_strlen(s1, NULL, 0, 1) + ft_strlen(s2, NULL, 0, 1) + 1;
 	idx = 0;
 	idx2 = 0;
 	if (!(ans = malloc(sizeof(char) * size)))
@@ -82,20 +101,29 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (ans);
 }
 
-int		ft_strchr(char *str, char c)
+int		ft_strchr(char *str, char c, char **buf2, int fd)
 {
 	int		idx;
 	char	*st;
 
-	st = (char*)str;
 	idx = 0;
-	while (st[idx])
+	if (fd == 0)
 	{
-		if (st[idx] == c)
+		st = (char*)str;
+		while (st[idx])
+		{
+			if (st[idx] == c)
+				return (idx);
+			idx++;
+		}
+		if (st[idx] == '\0' && c == '\0')
 			return (idx);
-		idx++;
+		return (-1);
 	}
-	if (st[idx] == '\0' && c == '\0')
-		return (idx);
-	return (-1);
+	else
+	{
+		while (idx < fd + 1)
+			buf2[idx++] = ft_strdup("\0", 1, 0, 0);
+		return (0);
+	}
 }
