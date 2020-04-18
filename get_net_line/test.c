@@ -10,8 +10,20 @@ int main(void)
 	int fd;
 	int fd2;
 
-	fd2 = open("test2.txt", O_RDONLY);
 	fd = open("test.txt", O_RDONLY);
+	fd2 = open("test2.txt", O_RDONLY);
+	ret = get_next_line(fd, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd2, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd2, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
 	ret = get_next_line(fd, &line);
 		printf("ret : %d line : %s\n", ret, line);
 		free(line);
@@ -24,13 +36,7 @@ int main(void)
 	ret = get_next_line(fd2, &line);
 		printf("ret : %d line : %s\n", ret, line);
 		free(line);
-	ret = get_next_line(fd, &line);
-		printf("ret : %d line : %s\n", ret, line);
-		free(line);
-	ret = get_next_line(fd, &line);
-		printf("ret : %d line : %s\n", ret, line);
-		free(line);
-	ret = get_next_line(fd, &line);
+	ret = get_next_line(fd2, &line);
 		printf("ret : %d line : %s\n", ret, line);
 		free(line);
 	ret = get_next_line(fd, &line);

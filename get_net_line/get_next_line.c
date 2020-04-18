@@ -6,11 +6,12 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 00:45:36 by youlee            #+#    #+#             */
-/*   Updated: 2020/04/16 20:01:42 by youlee           ###   ########.fr       */
+/*   Updated: 2020/04/19 02:11:36 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 static void			put_line(char **line, char **buf2, int fd, int idx)
 {
@@ -34,7 +35,6 @@ static void			put_line(char **line, char **buf2, int fd, int idx)
 	*line = ft_strdup(temp, 1, 0, 0);
 	free(temp);
 }
-
 static int			val_ret(char **buf2, int fd, int fdnum, char **line)
 {
 	int row;
@@ -42,7 +42,7 @@ static int			val_ret(char **buf2, int fd, int fdnum, char **line)
 	row = 0;
 	while (buf2[row] != NULL)
 		row++;
-	if (fdnum == 0 && buf2[fd][0] == 0)
+	if (buf2[fd][0] == 0 && fdnum < BUFFER_SIZE && fdnum >= 0)
 	{
 		*line = ft_strdup("\0", 1, 0, 0);
 		return (ft_strlen(NULL, buf2, fd, row));
@@ -95,7 +95,7 @@ static void			row_calloc(char ***buf2, int fd, int row_size)
 	bb = *buf2;
 	while (bb[row_size] != NULL)
 		row_size++;
-	if (fd + 2 > row_size)
+	if (fd + 1 > row_size)
 	{
 		row_size = 0;
 		temp = malloc(sizeof(char*) * (fd + 2));
@@ -103,9 +103,10 @@ static void			row_calloc(char ***buf2, int fd, int row_size)
 		while (bb[row_size] != NULL)
 		{
 			temp[row_size] = ft_strdup(bb[row_size], 1, 0, 0);
-			free(bb[row_size++]);
+			free(bb[row_size]);
+			row_size++;
 		}
-		while (temp[row_size] != NULL)
+		while (row_size < fd + 1)
 		{
 			temp[row_size] = ft_strdup("\0", 1, 0, 0);
 			row_size++;

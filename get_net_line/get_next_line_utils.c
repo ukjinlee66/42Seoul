@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 10:32:48 by youlee            #+#    #+#             */
-/*   Updated: 2020/04/16 19:42:38 by youlee           ###   ########.fr       */
+/*   Updated: 2020/04/19 01:19:36 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,8 @@ int		ft_strlen(char *str, char **buf2, int fd, int row)
 			while (size < row)
 				free(buf2[size++]);
 			free(buf2);
+			buf2 = NULL;
 		}
-		//else
-		//	ft_strdup(0, 0, &buf2[fd], 0);
 		return (0);
 	}
 }
