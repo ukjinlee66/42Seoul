@@ -8,13 +8,52 @@ int main(void)
 	char *line;
 	int ret;
 	int fd;
+	int fd2;
+
+	fd2 = open("test2.txt", O_RDONLY);
 	fd = open("test.txt", O_RDONLY);
-	while ((ret = get_next_line(fd, &line)))
-	{
+	ret = get_next_line(fd, &line);
 		printf("ret : %d line : %s\n", ret, line);
 		free(line);
-	}
-	printf("ret : %d line : %s\n", ret, line);
-	free(line);
+	ret = get_next_line(fd2, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd2, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd2, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd2, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd2, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd2, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	//while ((ret = get_next_line(fd, &line)))
+	//{
+//		printf("ret : %d line : %s\n", ret, line);
+//		free(line);
+//	}
+//	printf("ret : %d line : %s\n", ret, line);
+//	free(line);
 	return (0);
 }
