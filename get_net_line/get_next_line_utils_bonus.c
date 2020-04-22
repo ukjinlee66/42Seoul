@@ -6,11 +6,11 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 10:32:48 by youlee            #+#    #+#             */
-/*   Updated: 2020/04/22 17:06:53 by youlee           ###   ########.fr       */
+/*   Updated: 2020/04/22 17:12:47 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {

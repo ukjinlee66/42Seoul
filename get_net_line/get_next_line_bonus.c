@@ -6,11 +6,11 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/10 00:45:36 by youlee            #+#    #+#             */
-/*   Updated: 2020/04/22 17:06:30 by youlee           ###   ########.fr       */
+/*   Updated: 2020/04/22 17:12:35 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static void			put_line(char **line, char **buf2, int fd, int idx)
 {

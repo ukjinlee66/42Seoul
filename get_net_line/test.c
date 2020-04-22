@@ -54,6 +54,15 @@ int main(void)
 	ret = get_next_line(fd2, &line);
 		printf("ret : %d line : %s\n", ret, line);
 		free(line);
+	ret = get_next_line(fd2, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd2, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
+	ret = get_next_line(fd2, &line);
+		printf("ret : %d line : %s\n", ret, line);
+		free(line);
 	//while ((ret = get_next_line(fd, &line)))
 	//{
 //		printf("ret : %d line : %s\n", ret, line);
