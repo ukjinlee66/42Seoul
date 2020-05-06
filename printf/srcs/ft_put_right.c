@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/22 13:32:50 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/02 13:48:45 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/05 17:55:41 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void		right_put_sign_notzero(char *dest, t_form *f1, size_t *idx, \
 	size_t		idx2;
 
 	idx2 = 0;
-	if (f1->neg)
+	if (f1->neg || f1->flag[3] || f1->flag[2] || \
+			f1->flag[4])
 		t1->size++;
 	while (*idx < (f1->width - (t1->size)))
 		dest[(*idx)++] = ' ';

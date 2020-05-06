@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 21:13:21 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/03 09:29:24 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/06 12:09:39 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ typedef struct		s_form
 }					t_form;
 void				parse_format(t_type *t1, va_list *ap, t_form *f1);
 int					ft_printf(const char *format, ...);
-void				check_width(t_type *t1, size_t *idx, t_form *f1);
+void				check_width(t_type *t1, va_list *ap, size_t *idx, t_form *f1);
 int					check_flag(t_type *t1, size_t *idx, t_form *f1);
 void				check_precision(t_type *t1, size_t *idx, \
 		t_form *f1, va_list *ap);

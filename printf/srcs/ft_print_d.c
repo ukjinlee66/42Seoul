@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/20 18:43:01 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/03 09:28:16 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/05 18:31:37 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ static void	left_copy(char *dest, t_type *t1, t_form *f1)
 	while (idx < f1->width)
 		dest[idx++] = ' ';
 	dest[idx] = '\0';
-	print_str(dest, t1, f1);
+	write(1, dest, ft_strlen((const char*)dest));
+	t1->len += ft_strlen((const char*)dest);
+	free(dest);
 	free(t1->ans);
 }
 
@@ -53,15 +55,15 @@ static void	right_copy(char *dest, t_type *t1, t_form *f1)
 	size_t		idx;
 
 	idx = 0;
-	if (f1->flag[3] > 0 || f1->flag[4] > 0)
-		(t1->size)++;
 	if (f1->exis[2] && f1->flag[1] > 0)
 		f1->flag[1] = 0;
 	if (f1->flag[1] > 0)
 		right_put_sign_zero(dest, f1, &idx, t1);
 	else
 		right_put_sign_notzero(dest, f1, &idx, t1);
-	print_str(dest, t1, f1);
+	write(1, dest, ft_strlen((const char*)dest));
+	t1->len += ft_strlen((const char*)dest);
+	free(dest);
 	free(t1->ans);
 }
 
@@ -87,7 +89,11 @@ void		print_dec(t_form *f1, va_list *ap, t_type *t1)
 		print_str(t1->ans, t1, f1);
 	else
 	{
+		//if (f1->neg || f1->flag[2] || f1->flag[3] || \
+				//f1->flag[4])
+			//f1->width++;
 		str = (char*)malloc(sizeof(char) * (f1->width));
+		//t1->size = f1->width;
 		f1->flag[2] > 0 ? left_copy(str, t1, f1) : right_copy(str, t1, f1);
 	}
 }

@@ -1,7 +1,6 @@
 #include <stdio.h>
-
 int main(void)
 {
-	printf("%5");
+	printf("%-10.2d",1234);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 16:15:39 by youlee            #+#    #+#             */
-/*   Updated: 2020/04/30 04:27:36 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/06 12:14:31 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,6 @@ void			printf_ptr(t_form *f1, va_list *ap, t_type *t1)
 	unsigned long long	temp2;
 
 	str = NULL;
-	if (f1->flag[0] || f1->flag[1] || f1->flag[3] || \
-			f1->flag[4] || f1->exis[2])
-	{
-		t1->error = true;
-		return ;
-	}
 	temp2 = va_arg(*ap, long long);
 	str = cal_size(str, f1, t1, temp2);
 	print_str(str, t1, f1);
