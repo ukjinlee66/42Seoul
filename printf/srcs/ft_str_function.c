@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/02 00:54:15 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/03 13:07:48 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:11:25 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	special(t_form *f1, t_type *t1, int idx)
 	else
 	{
 		while (idx < (int)f1->width - 1)
-		{	
+		{
 			write(1, " ", 1);
 			idx++;
 		}
@@ -40,7 +40,7 @@ void	special(t_form *f1, t_type *t1, int idx)
 	}
 }
 
-void		ft_strrev(char **strr)
+void	ft_strrev(char **strr)
 {
 	size_t		nusize;
 	size_t		idx;

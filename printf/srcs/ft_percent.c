@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 14:46:24 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/02 12:38:15 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:12:38 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	right_copy(char *dest, t_type *t1, t_form *f1)
 		free(dest);
 	}
 }
-#include <stdio.h>
+
 void		printf_percent(t_form *f1, t_type *t1)
 {
 	char	*ch;

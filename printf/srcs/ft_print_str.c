@@ -6,12 +6,12 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 18:20:12 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/04 19:56:43 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:05:13 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+
 void		print_str(char *str, t_type *t1, t_form *f1)
 {
 	size_t		size;

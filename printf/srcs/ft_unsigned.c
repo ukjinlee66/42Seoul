@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/31 15:06:35 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/07 16:48:48 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:10:02 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void		left_copy(char *dest, t_type *t1, t_form *f1)
 	print_str(dest, t1, f1);
 	free(t1->ans);
 }
-#include <stdio.h>
+
 static void		right_copy(char *dest, t_type *t1, t_form *f1)
 {
 	size_t			idx;

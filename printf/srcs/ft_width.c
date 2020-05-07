@@ -6,11 +6,23 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 18:26:29 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/07 16:25:29 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:52:01 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void	wild_check(long num, va_list *ap, size_t *idx, t_form *f1)
+{
+	num = va_arg(*ap, int);
+	if (num < 0)
+	{
+		num *= -1;
+		f1->flag[2]++;
+	}
+	f1->width = num;
+	(*idx)++;
+}
 
 void		check_width(t_type *t1, va_list *ap, size_t *idx, t_form *f1)
 {
@@ -18,16 +30,7 @@ void		check_width(t_type *t1, va_list *ap, size_t *idx, t_form *f1)
 
 	num = 0;
 	if (t1->format[*idx] == '*')
-	{
-		num = va_arg(*ap, int);
-		if (num < 0)
-		{
-			num *= -1;
-			f1->flag[2]++;
-		}
-		f1->width = num;
-		(*idx)++;
-	}
+		return (wild_check(num, ap, idx, f1));
 	else
 	{
 		while (t1->format[*idx] >= '0' && t1->format[*idx] <= '9')

@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 21:30:43 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/07 16:22:54 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:04:44 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void		parse_format(t_type *t1, va_list *ap, t_form *f1)
 			check_flag(t1, &index, f1);
 			check_width(t1, ap, &index, f1);
 			check_precision(t1, &index, f1, ap);
-			//if (t1->error)
-			//	return ;
 			check_format(t1, &index, f1, ap);
 			init_func(t1, f1);
 		}

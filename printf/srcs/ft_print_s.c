@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 17:45:03 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/07 17:44:15 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/07 19:58:28 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,8 @@ void				printf_str(t_form *f1, va_list *ap, t_type *t1)
 		t1->ans = str;
 	t1->size = ft_strlen((const char*)t1->ans);
 	size = cal_size(f1, t1, 0);
-	temp = malloc(sizeof(char) * size);
+	temp = malloc(sizeof(char) * (size + 1));
+	temp[size] = '\0';
 	f1->flag[2] > 0 ? left_string(temp, t1, size, f1) : \
 		right_string(temp, t1, size, f1);
 }

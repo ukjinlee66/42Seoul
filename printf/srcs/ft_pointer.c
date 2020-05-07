@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 16:15:39 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/06 12:36:03 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/07 20:08:08 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ unsigned long long temp2)
 		else
 			str = "0x0";
 	else
-		str =make_str(temp2);
+		str = make_str(temp2);
 	if (temp2 != 0)
 	{
 		ft_strrev(&str);
