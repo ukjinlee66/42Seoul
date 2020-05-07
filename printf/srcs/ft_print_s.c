@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 17:45:03 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/03 12:51:39 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/07 17:44:15 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static void			null_case(t_form *f1, t_type *t1, int idx)
 	nu[4] = 'l';
 	nu[5] = ')';
 	nu[6] = '\0';
-	if (f1->exis[2] == true)
+	if (f1->exis[2] == true && f1->flag[5] == 0)
 	{
 		t1->ans = malloc(sizeof(char) * (f1->pre + 1));
 		while (idx < (int)f1->pre && f1->exis[2] && nu[idx])
@@ -114,7 +114,6 @@ void				printf_str(t_form *f1, va_list *ap, t_type *t1)
 	t1->size = ft_strlen((const char*)t1->ans);
 	size = cal_size(f1, t1, 0);
 	temp = malloc(sizeof(char) * size);
-	temp[size] = '\0';
 	f1->flag[2] > 0 ? left_string(temp, t1, size, f1) : \
 		right_string(temp, t1, size, f1);
 }

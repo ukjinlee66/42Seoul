@@ -1,6 +1,6 @@
 #include <stdio.h>
 int main(void)
 {
-	printf("%-10.2d",1234);
+	printf("%*.*d",10,-1,123);
 	return (0);
 }

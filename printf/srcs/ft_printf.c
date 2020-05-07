@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/14 21:12:54 by youlee            #+#    #+#             */
-/*   Updated: 2020/04/26 01:49:22 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/07 18:22:08 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_typ(t_type *tt, t_form *ff)
 	index = 0;
 	tt->format = 0;
 	tt->ans = 0;
-	while (index < 5)
+	while (index < 6)
 	{
 		if (index < 4)
 			ff->exis[index] = false;
@@ -31,6 +31,7 @@ void	init_typ(t_type *tt, t_form *ff)
 	tt->error = false;
 	tt->size = 0;
 	tt->len = 0;
+	ff->neg = false;
 }
 
 int		ft_printf(const char *format, ...)

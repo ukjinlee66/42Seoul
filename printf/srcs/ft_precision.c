@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 19:15:07 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/02 13:28:50 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/07 16:19:19 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void				check_precision(t_type *t1, size_t *idx, t_form *f1, \
 			if (num < 0)
 				f1->flag[5] = (int)num;
 			else
-				f1->pre = (size_t)num;
+				f1->pre = (int)num;
 			f1->exis[3] = true;
 			f1->exis[2] = true;
 			(*idx)++;

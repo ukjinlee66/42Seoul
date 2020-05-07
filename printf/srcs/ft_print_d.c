@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/20 18:43:01 by youlee            #+#    #+#             */
-/*   Updated: 2020/05/05 18:31:37 by youlee           ###   ########.fr       */
+/*   Updated: 2020/05/07 18:22:25 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void	put_zero(t_type *t1, t_form *f1)
 	int			zero;
 
 	zero = (int)(f1->pre) - (int)(t1->size);
+	if (zero < 0)
+		return ;
 	while (zero--)
 	{
 		str = ft_strjoin((const char*)"0", (const char *)t1->ans);
@@ -55,7 +57,7 @@ static void	right_copy(char *dest, t_type *t1, t_form *f1)
 	size_t		idx;
 
 	idx = 0;
-	if (f1->exis[2] && f1->flag[1] > 0)
+	if (f1->exis[2] && f1->flag[1] > 0 && f1->flag[5] == 0)
 		f1->flag[1] = 0;
 	if (f1->flag[1] > 0)
 		right_put_sign_zero(dest, f1, &idx, t1);
@@ -69,31 +71,28 @@ static void	right_copy(char *dest, t_type *t1, t_form *f1)
 
 void		print_dec(t_form *f1, va_list *ap, t_type *t1)
 {
-	int			num;
+	long		num;
 	char		*str;
 
 	num = va_arg(*ap, int);
-	if (num == 0 && f1->pre == 0 && f1->exis[2])
+	if (num == 0 && f1->pre == 0 && f1->exis[2] && f1->flag[5] == 0)
 		return (special(f1, t1, 0));
 	if (num < 0)
 	{
 		f1->neg = true;
 		num *= -1;
 	}
-	t1->ans = ft_itoa(num);
+	t1->ans = ft_utoa((unsigned int)num);
 	t1->size = ft_strlen((const char*)t1->ans);
-	if (ft_strlen((const char *)t1->ans) < f1->pre)
+	if (t1->size < f1->pre && f1->exis[2])
 		put_zero(t1, f1);
 	t1->size = ft_strlen((const char *)t1->ans);
 	if (t1->size >= f1->width)
 		print_str(t1->ans, t1, f1);
 	else
 	{
-		//if (f1->neg || f1->flag[2] || f1->flag[3] || \
-				//f1->flag[4])
-			//f1->width++;
-		str = (char*)malloc(sizeof(char) * (f1->width));
-		//t1->size = f1->width;
+		str = (char*)malloc(sizeof(char) * (f1->width) + 1);
+		str[f1->width] = '\0';
 		f1->flag[2] > 0 ? left_copy(str, t1, f1) : right_copy(str, t1, f1);
 	}
 }
