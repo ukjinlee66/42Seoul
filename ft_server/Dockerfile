@@ -9,3 +9,5 @@ RUN apt-get install -y php7.3-fpm
 RUN apt-get install -y php7.3-cli
 RUN apt-get install -y php7.3-mbstring
 RUN apt-get install -y php7.3-mysql
+
+EXPOSE 80
