@@ -20,14 +20,14 @@ COPY ./srcs/phpmyadmin.zip /var/www/html/
 COPY ./srcs/localhost /etc/nginx/sites-available/localhost
 RUN ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/localhost
 
-RUN unzip /var/www/html/wordpress.zip
-RUN unzip /var/www/html/phpmyadmin.zip
+RUN unzip /var/www/html/wordpress.zip -d /var/www/html
+RUN unzip /var/www/html/phpmyadmin.zip -d /var/www/html
+RUN mv /var/www/html/phpMyAdmin-5.0.2-all-languages /var/www/html/phpmyadmin
 RUN rm -fr /var/www/html/wordpress.zip
 RUN rm -fr /var/www/html/phpmyadmin.zip
 
-RUN service mysql start
-RUN mysql -u root mysql < /var/init_db.sql
-RUN mysql wordpress -u root --password= < /var/wordpressdb.sql
+COPY ./srcs/config.inc.php /var/www/html/phpmyadmin/config.inc.php
+RUN service mysql start && mysql -u root mysql < /var/init_db.sql && mysql wordpressdb -u root --password= < /var/wordpressdb.sql
 
 COPY ./srcs/wp-config.php /var/www/html/wordpress/wp-config.php
 
