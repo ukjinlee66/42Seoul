@@ -1,6 +1,6 @@
 CREATE DATABASE wordpressdb;
 
-GRANT ALL PRIVILEGES ON word_db.* TO 'root'@'localhost';
+GRANT ALL PRIVILEGES ON wordpressdb.* TO 'root'@'localhost';
 
 FLUSH PRIVILEGES;
 

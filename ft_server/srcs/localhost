@@ -1,7 +1,7 @@
 server {
 		listen 80;
 		listen [::]:80;
-		server_name localhost www.localhost;
+		server_name _;
 		return 301 https://$server_name$request_uri;
 }
 
@@ -16,8 +16,10 @@ server {
 		root /var/www/html;
 
 		index index.html index.htm index.nginx-debian.html index.php;
-		server_name localhost www.localhost;
-
+		server_name _;
+		location / {
+			autoindex on;
+		}
 		location ~ \.php$ {
 			include snippets/fastcgi-php.conf;
 			fastcgi_pass unix:/run/php/php7.3-fpm.sock;
