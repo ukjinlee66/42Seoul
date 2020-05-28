@@ -39,4 +39,4 @@ RUN chmod -R 755 /var/www/*
 RUN service nginx start
 RUN service php7.3-fpm start
 
-EXPOSE 80 443 8080 6060
+EXPOSE 80 443 8080

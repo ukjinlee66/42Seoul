@@ -46,14 +46,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'j_aA3iVs[kr`db.$-ORoE$9vn0;lq`f_3*+Icb/gtvkHj6)#[41tj<Dl0rDL]Pw2');
-define('SECURE_AUTH_KEY',  'tu;#M=K<>uGi4ItnEg0,@n-kIQ]8q{Geo>rPB{9/B1vv=]-!D7K5,y?,xTK-f&Y#');
-define('LOGGED_IN_KEY',    '.w-Kd]U$G-yl)ORjRFVP,CSv2eXnvf%}E=LCz;@11x5-?B_Rn]&h>CNF&[Ivt[3L');
-define('NONCE_KEY',        'jv;Qx#y_6k-!q.M2iyeU-+ |9KfTfLJfs7$^pHq^aOMk7!<mwS165#}Kjqd-CK|V');
-define('AUTH_SALT',        '[DBb35]<tYGmt&vu{>5QF5!+n_ PwQNeU{f-^|?G0NG*kC>B0R/!Rm!ZM`3qM_8=');
-define('SECURE_AUTH_SALT', 'R4dZ.b [;)>9lBXIg9Am*q&9:WH`,~rn]b|b|1V$j<%Sn!<P+Bp,4%TQ{c(U+-2_');
-define('LOGGED_IN_SALT',   '#|m+*@y%uZeNcXhqt4]i1T]l*%Y=Q|<xo d7g_9k^t_f3cCvVj;fqX 2@g.,=Lm^');
-define('NONCE_SALT',       'EN3Vha+H=+2%&pmL#Ib|gp+,.!mYlw<8lLLHEqw! 7w 8`()SLSB9?dAOSwRx-Fb');
+define('AUTH_KEY',         'put your unique phrase here');
+define('SECURE_AUTH_KEY',  'put your unique phrase here');
+define('LOGGED_IN_KEY',    'put your unique phrase here');
+define('NONCE_KEY',        'put your unique phrase here');
+define('AUTH_SALT',        'put your unique phrase here');
+define('SECURE_AUTH_SALT', 'put your unique phrase here');
+define('LOGGED_IN_SALT',   'put your unique phrase here');
+define('NONCE_SALT',       'put your unique phrase here');
 /**#@-*/
 
 /**
@@ -70,7 +70,7 @@ $table_prefix = 'wp_';
  * Change this to true to enable the display of notices during development.
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
- *
+ 
  * For information on other constants that can be used for debugging,
  * visit the documentation.
  *
