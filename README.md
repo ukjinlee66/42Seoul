@@ -8,8 +8,5 @@
 - [x] 3. [ft_printf](https://github.com/ukjinlee66/42Seoul/tree/master/printf) (100%)  *100/115*
 - [x] 4. netwhat (100%)  *100/100*
 - [x] 5. [ft_server](https://github.com/ukjinlee66/42Seoul/tree/master/ft_server) (100%)  *100/100*
-- [ ] 6. cub3d (10%)
+- [ ] 6. cub3d (20%)
 - [ ] 7. exam02 (0%)<br>
-## **추가적으로 공부해야 할 사항**<br>
-* mac환경과 windows환경에서의 그래픽작업의 차이점.
-* raycasting의 개념.
