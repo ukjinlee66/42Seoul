@@ -2,35 +2,6 @@
 #include <stdlib.h>
 #include "mlx.h"
 
-#define KEY_Q 12
-#define KEY_W 13
-#define KEY_E 14
-#define KEY_R 15
-#define KEY_A 0
-#define KEY_S 1
-#define KEY_D 2
-#define KEY_ESC 53
-
-#define X_EXIT 17
-#define X_release 3
-#define X_press 2
-
-typedef struct	s_form
-{
-	int		x;
-	int		y;
-	char	str[3];
-}		t_form;
-
-void init_form(t_form *a)
-{
-	a->x = 0;
-	a->y = 0;
-	a->str[0] = 'a';
-	a->str[1] = 'b';
-	a->str[2] = '\0';
-}
-
 int	key_press(int code, t_form *form)
 {
 	if (code == KEY_W)
