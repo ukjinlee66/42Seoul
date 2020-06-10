@@ -6,12 +6,15 @@
 /*   By: youlee </var/mail/youlee>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 18:24:11 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/09 18:36:21 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/10 18:47:27 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
+
+#include <math.h>
+#include "mlx.h"
 
 /*
  ** **key code**
@@ -48,6 +51,10 @@
 # define KEY_ESC		53
 # define KEY_TAB		48
 
+/*
+ ** struct **
+ */
+
 typedef struct		s_pos
 {
 	double			x;
@@ -60,4 +67,36 @@ typedef struct		s_str
 	struct s_str	*next;
 }					t_str;
 
+typedef struct		s_img
+{
+	void			*img;
+	void			*ptr;
+	int				bpp;
+	int				size_l;
+	int				endian;
+}					t_img;
+
+typedef struct		s_win
+{
+	void			*win;
+	void			*ptr;
+	t_img			screen;
+	t_pos			size;
+	t_pos			half;
+	double			ratio;
+}					t_win;
+
+typedef	struct		s_game
+{
+	t_win			window;
+	t_pos			move;
+	t_pos			x_move;
+	t_pos			rotate;
+	int				option;
+	int				to_collect;
+	double			cos[2];
+	double			sin[2];
+}					t_game;
+
+	
 #endif
