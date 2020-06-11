@@ -1,24 +1,42 @@
-#include "mlx.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: youlee </var/mail/youlee>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/06/11 20:56:11 by youlee            #+#    #+#             */
+/*   Updated: 2020/06/11 21:17:52 by youlee           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main(void)
+#include "cub3d.h"
+
+int		exit_error(t_game *game, char const *str)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int i;
-	int j;
+	if (str)
+		write(STDOUT_FILENO, str, ft_strlen(str));
+	exit_game(game, EXIT_FAILURE);
+	return (EXIT_FAILURE);
+}
 
-	i = 50;
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "first_test");
-	while (i < 250)
-	{
-		j = 50;
-		while (j < 250)
-		{
-			mlx_pixel_put(mlx_ptr, win_ptr, i, j, 0255000000);
-			j++;
-		}
-		i++;
-	}
-	mlx_loop(mlx_ptr);
+int 	main(int ac, char **av)
+{
+	t_game	game;
+	int		save_op;
+
+	save_op = (ac >= 2 && !ft_strcmp(av[1], "-save"));
+	if (ac < (2 + save_op))
+		return (exit_error(&game, "Error:\nno map specified.\n"));
+	init_game(&game, save_op);
+	if (!parse_config(&game.config, argv[1 + save_op]))
+		return (exit_error(&game, "Error:\ninvalid map.\n"));
+	if (!finish_init(&game))
+		return (EXIT_FAILURE);
+	mlx_hook(game.window.win, X_EVENT_KEY_PRESS, 0, &key_press, &game);
+	mlx_hook(game.window.win, X_EVENT_KEY_RELEASE, 0, &ket_release, &game);
+	mlx_hook(game.window.win, X_EVENT_EXIT, 0, &exit_hook, &game);
+	mlx_loop_hook(game.window.ptr, &main_loop, &game);
+	mlx_loop(game.window.ptr);
+	return (EXIT_SUCCESS);
 }

@@ -1,21 +1,38 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "mlx.h"
+#include "cub3d.h"
 
-int	key_press(int code, t_form *form)
+int	key_press(int code, t_game *game)
 {
-	if (code == KEY_W)
-		printf("str : %s\n", form->str);
+	if (code == KEY_W || code == KEY_FORWARD)
+		game->move.x = 1;
+	else if (code == KEY_S || code == KEY_BACKWARD)
+		game->move.y = 1;
+	if (code == KEY_A)
+		game->x_move.x = 1;
+	else if (code == KEY_D)
+		game->y_move.y = 1;
+	if (code == KEY_Q || code == KEY_LEFT)
+		game->rotate.x = 1;
+	else if(code == KEY_E || code == KEY_RIGHT)
+		game->rotate.y = 1;
+	return (0);
+}
+
+int key_release(int code, t_game *game)
+{
+	if (code == KEY_W || code == KEY_FORWARD)
+		game->move.x = 0;
+	else if (code == KEY_S || code == KEY_BACKWARD)
+		game->move.y = 0;
 	else if (code == KEY_A)
-		printf("x : %d y : %d\n", form->x, form->y);
+		game->x_move.x = 0;
+	else if (code == KEY_D)
+		game->y_move.y = 0;
+	else if (code == KEY_Q || code == KEY_LEFT)
+		game->rotate.x = 0;
+	else if (code == KEY_E || code == KEY_RIGHT)
+		game->rotate.y = 0;
 	else if (code == KEY_ESC)
-		exit(0);
-	else
-	{
-		printf("'W' key: Print string\n");
-		printf("'A' key: Print location\n");
-		printf("'ESC' key: Exit this program\n");
-	}
+		return (exit_game(game, EXIT_SUCCESS));
 	return (0);
 }
 

@@ -6,19 +6,21 @@
 /*   By: youlee </var/mail/youlee>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/09 18:24:11 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/10 18:47:27 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/11 20:29:02 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+#include <stdlib.h>
+#include <stdio.h>
 #include <math.h>
 #include "mlx.h"
 
 /*
  ** **key code**
- */
+*/
 # define LEFT_CLICK		1
 # define RIGHT_CLICK	2
 # define MIDDLE_CLICK	3
@@ -53,7 +55,7 @@
 
 /*
  ** struct **
- */
+*/
 
 typedef struct		s_pos
 {
@@ -86,17 +88,31 @@ typedef struct		s_win
 	double			ratio;
 }					t_win;
 
+typedef struct		s_tex
+{
+	char			*path;
+	void			*tex;
+	void			*ptr;
+	t_pos			start;
+	t_pos			end;
+	int				width;
+	int				height;
+	int				bpp;
+	int				size_l;
+	int				endian;
+}					t_tex;
+
 typedef	struct		s_game
 {
 	t_win			window;
 	t_pos			move;
 	t_pos			x_move;
 	t_pos			rotate;
+	t_tex			tex[TEXTURES];
 	int				option;
 	int				to_collect;
 	double			cos[2];
 	double			sin[2];
 }					t_game;
 
-	
 #endif
