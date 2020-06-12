@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/12 19:03:22 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/12 19:03:26 by youlee           ###   ########.fr       */
+/*   Created: 2020/02/26 17:04:46 by youlee            #+#    #+#             */
+/*   Updated: 2020/04/04 17:12:17 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		exit_game(t_game *game, int code)
-{
+#include "libft.h"
 
+int	ft_memcmp(const void *ptr1, const void *ptr2, size_t num)
+{
+	size_t			idx;
+	unsigned char	*pt1;
+	unsigned char	*pt2;
+
+	idx = 0;
+	pt1 = (unsigned char*)ptr1;
+	pt2 = (unsigned char*)ptr2;
+	while (idx < num)
+	{
+		if (pt1[idx] != pt2[idx])
+			return ((int)(pt1[idx] - pt2[idx]));
+		idx++;
+	}
+	return (0);
 }
-
-void	init_game(t_game *game, int save)
-{
-	int		i;
-
-	set_pos(&game->move, 0, 0);
-	set_pos(&game->x_move, 0, 0);
-	set_pos(&game->rotate, 0, 0);
-	game

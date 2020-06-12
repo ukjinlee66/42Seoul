@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/12 19:03:22 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/12 19:03:26 by youlee           ###   ########.fr       */
+/*   Created: 2020/02/25 00:33:37 by youlee            #+#    #+#             */
+/*   Updated: 2020/04/04 23:53:26 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		exit_game(t_game *game, int code)
-{
+#include "libft.h"
 
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned char	*de;
+	unsigned char	*sr;
+
+	de = (unsigned char*)dest;
+	sr = (unsigned char*)src;
+	if (!dest && !src)
+		return (NULL);
+	while (n != 0)
+	{
+		*(de++) = *(sr++);
+		n--;
+	}
+	return (dest);
 }
-
-void	init_game(t_game *game, int save)
-{
-	int		i;
-
-	set_pos(&game->move, 0, 0);
-	set_pos(&game->x_move, 0, 0);
-	set_pos(&game->rotate, 0, 0);
-	game

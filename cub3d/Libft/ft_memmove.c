@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/12 19:03:22 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/12 19:03:26 by youlee           ###   ########.fr       */
+/*   Created: 2020/02/25 11:14:19 by youlee            #+#    #+#             */
+/*   Updated: 2020/04/05 01:04:48 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		exit_game(t_game *game, int code)
-{
+#include "libft.h"
 
+void	*ft_memmove(void *dest, const void *src, size_t num)
+{
+	unsigned char		*de;
+	const unsigned char	*sr;
+	size_t				idx;
+
+	idx = 0;
+	if (!dest && !src)
+		return (dest);
+	de = (unsigned char*)dest;
+	sr = (unsigned char*)src;
+	if (sr < de)
+		while (num-- > 0)
+			de[num] = sr[num];
+	else
+		while (idx < num)
+		{
+			de[idx] = sr[idx];
+			idx++;
+		}
+	return (dest);
 }
-
-void	init_game(t_game *game, int save)
-{
-	int		i;
-
-	set_pos(&game->move, 0, 0);
-	set_pos(&game->x_move, 0, 0);
-	set_pos(&game->rotate, 0, 0);
-	game

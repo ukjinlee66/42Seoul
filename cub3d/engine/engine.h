@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   engine.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/12 19:03:22 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/12 19:03:26 by youlee           ###   ########.fr       */
+/*   Created: 2020/06/12 20:06:06 by youlee            #+#    #+#             */
+/*   Updated: 2020/06/12 20:09:56 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		exit_game(t_game *game, int code)
+#include "../cub3d.h"
+
+typedef struct		s_camera
 {
+	t_pos			pos;
+	t_pos			dir;
+	t_pos			x_dir;
+	t_pos			plane;
+}					t_camera;
 
-}
-
-void	init_game(t_game *game, int save)
+typedef struct		s_sprite
 {
-	int		i;
+	t_pos			pos;
+	t_tex			*tex;
+	double			dist;
+	struct s_sprite *next;
+	struct s_sprite *sorted;
+}					t_sprite;
 
-	set_pos(&game->move, 0, 0);
-	set_pos(&game->x_move, 0, 0);
-	set_pos(&game->rotate, 0, 0);
-	game
+

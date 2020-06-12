@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/12 19:03:22 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/12 19:03:26 by youlee           ###   ########.fr       */
+/*   Created: 2020/03/01 19:27:18 by youlee            #+#    #+#             */
+/*   Updated: 2020/04/05 04:31:05 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		exit_game(t_game *game, int code)
-{
+#include "libft.h"
 
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char	*ans;
+	int		size;
+	int		idx;
+
+	idx = 0;
+	if (!s || !f)
+		return (NULL);
+	size = ft_strlen(s);
+	if (!(ans = malloc(sizeof(char) * size + 1)))
+		return (NULL);
+	while (idx < size)
+	{
+		ans[idx] = f(idx, s[idx]);
+		idx++;
+	}
+	ans[idx] = '\0';
+	return (ans);
 }
-
-void	init_game(t_game *game, int save)
-{
-	int		i;
-
-	set_pos(&game->move, 0, 0);
-	set_pos(&game->x_move, 0, 0);
-	set_pos(&game->rotate, 0, 0);
-	game

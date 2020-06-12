@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/12 19:03:22 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/12 19:03:26 by youlee           ###   ########.fr       */
+/*   Created: 2020/03/01 20:52:13 by youlee            #+#    #+#             */
+/*   Updated: 2020/04/04 16:57:02 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		exit_game(t_game *game, int code)
-{
+#include "libft.h"
 
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list *temp;
+	t_list *temp2;
+
+	if (lst && *lst)
+	{
+		temp = (*lst);
+		while (temp->next != NULL)
+		{
+			temp2 = temp->next;
+			ft_lstdelone(temp, del);
+			temp = temp2;
+		}
+		ft_lstdelone(temp, del);
+		*lst = NULL;
+	}
 }
-
-void	init_game(t_game *game, int save)
-{
-	int		i;
-
-	set_pos(&game->move, 0, 0);
-	set_pos(&game->x_move, 0, 0);
-	set_pos(&game->rotate, 0, 0);
-	game
