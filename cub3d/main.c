@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 19:03:39 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/12 19:03:40 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/14 20:37:13 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int 	main(int ac, char **av)
 	t_game	game;
 	int		save_op;
 
-	save_op = (ac >= 2 && !ft_strcmp(av[1], "-save"));
+	save_op = (ac >= 2 && !ft_strcmp(av[1], "--save"));
 	if (ac < (2 + save_op))
 		return (exit_error(&game, "Error:\nno map specified.\n"));
 	init_game(&game, save_op);

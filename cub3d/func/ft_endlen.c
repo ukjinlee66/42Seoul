@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   ft_endlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/12 19:03:22 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/14 20:46:42 by youlee           ###   ########.fr       */
+/*   Created: 2020/06/14 21:33:19 by youlee            #+#    #+#             */
+/*   Updated: 2020/06/14 21:38:33 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		exit_game(t_game *game, int code)
+#include "../Libft/libft.h"
+
+int			ft_endlen.c(char *str, char *end)
 {
-	clear_config(&game->config);
-	clear_window(&game->window);
-	clear_sprites(&game->sprites);
-	exit(code);
-	return (code);
+	int		len;
+	int		end_len;
+
+	len = ft_strlen(str);
+	end_len = ft_strlen(end);
+	if (end_len > len)
+		return (0);
+	return (!ft_strcmp(str + len - end_len, end);
 }
-
-void	init_game(t_game *game, int save)
-{
-	int		i;
-
-	set_pos(&game->move, 0, 0);
-	set_pos(&game->x_move, 0, 0);
-	set_pos(&game->rotate, 0, 0);
-	game

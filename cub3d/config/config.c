@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 19:39:55 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/12 20:05:11 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/14 21:47:39 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,26 @@ int			clear_config(t_config *config)
 		free(config->map);
 	config->map = NULL;
 	return (0);
+}
+
+int			parse_config(t_config *config, char *path)
+{
+	int		fd;
+	char	*line;
+	int		ret;
+	t_str	*buff;
+
+	if (!ft_endwith(conf_path, ".cub"))
+		return (0);
+	if ((fd = open(path, O_RDONLY)) < 0)
+		return (0);
+	buff = NULL;
+	ret = 1;
+	while (get_next_line(fd, &line))
+	{
+		ret = (ret && parse_line(config, line, &buff));
+		free(line);
+	}
+	if (ret && ft_strlen(line) > 0)
+		ret = 
 }

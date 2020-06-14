@@ -6,13 +6,16 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 19:03:08 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/12 19:03:11 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/14 20:54:10 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+#include "engine/engine.h"
+#include "config.h"
+#include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
@@ -104,6 +107,8 @@ typedef struct		s_tex
 
 typedef	struct		s_game
 {
+	t_config		config;
+	t_camera		camera;
 	t_win			window;
 	t_pos			move;
 	t_pos			x_move;
@@ -111,6 +116,10 @@ typedef	struct		s_game
 	t_tex			tex[TEXTURES];
 	int				option;
 	int				to_collect;
+	int				collected;
+	double			camera_x[2000];
+	double			depth[2000];
+	double			sf_dist[1080];
 	double			cos[2];
 	double			sin[2];
 }					t_game;

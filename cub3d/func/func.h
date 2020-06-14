@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   func.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/12 19:03:22 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/14 20:46:42 by youlee           ###   ########.fr       */
+/*   Created: 2020/06/14 21:37:19 by youlee            #+#    #+#             */
+/*   Updated: 2020/06/14 21:37:51 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		exit_game(t_game *game, int code)
-{
-	clear_config(&game->config);
-	clear_window(&game->window);
-	clear_sprites(&game->sprites);
-	exit(code);
-	return (code);
-}
+#ifndef FUNC_H
+# define FUNC_H
 
-void	init_game(t_game *game, int save)
-{
-	int		i;
+int			ft_endlen.c(char *str, char *end);
 
-	set_pos(&game->move, 0, 0);
-	set_pos(&game->x_move, 0, 0);
-	set_pos(&game->rotate, 0, 0);
-	game
+#endif

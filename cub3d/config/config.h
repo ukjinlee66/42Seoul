@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 19:40:20 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/12 19:55:33 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/14 21:40:27 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <fcntl.h>
 #include <get_next_line/get_next_line.h>
+#include "../func/func.h"
+
 
 /*
  ** texture
