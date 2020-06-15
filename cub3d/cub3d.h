@@ -6,13 +6,14 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 19:03:08 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/14 20:54:10 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/15 14:44:25 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+#include "Libft/libft.h"
 #include "engine/engine.h"
 #include "config.h"
 #include <unistd.h>
@@ -114,9 +115,9 @@ typedef	struct		s_game
 	t_pos			x_move;
 	t_pos			rotate;
 	t_tex			tex[TEXTURES];
-	int				option;
-	int				to_collect;
-	int				collected;
+	int				options;
+	int				to_kill;
+	int				kill;
 	double			camera_x[2000];
 	double			depth[2000];
 	double			sf_dist[1080];

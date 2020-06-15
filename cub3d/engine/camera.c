@@ -6,13 +6,16 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 20:05:59 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/13 19:52:12 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/15 15:35:46 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../cub3d.h"
 #include "engine.h"
+#include <math.h>
 
-void		find_start(t_config *config, t_camera *camera)
+
+void		find_start_pos(t_config *config, t_camera *camera)
 {
 	int		stop;
 
@@ -37,4 +40,5 @@ void		find_start(t_config *config, t_camera *camera)
 	camera->pos.y += .5;
 }
 
-void		find_start_angle(t_config 
+void		find_start_angle(t_config *config
+

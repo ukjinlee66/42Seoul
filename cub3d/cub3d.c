@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 18:55:40 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/14 21:47:43 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/15 15:04:04 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int		main_loop(t_game *game)
 	}
 	if (update)
 	{
-		if (game->to_collect > 0)
+		if (game->to_kill > 0)
 			check_quest(game);
 		MAP(game->camera.pos, game->config) = 'A';
 		update_screen(game);
