@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 20:05:59 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/15 15:35:46 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/17 20:21:40 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ void		find_start_pos(t_config *config, t_camera *camera)
 	camera->pos.y += .5;
 }
 
-void		find_start_angle(t_config *config
+void		find_start_angle(t_config *config, t_camera *camera)
+{
 
+}

@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 19:40:20 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/14 21:40:27 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/17 20:25:50 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 # define CONFIG_H
 
 #include <fcntl.h>
-#include <get_next_line/get_next_line.h>
+#include "../get_next_line/get_next_line.h"
 #include "../func/func.h"
-
+#include "../cub3d.h"
+#include "../engine/engine.h"
+#include <stdbool.h>
 
 /*
  ** texture
@@ -67,4 +69,14 @@ typedef struct	s_config
 	char		*tex_p[TEXTURES];
 	unsigned	c[TEXTURES];
 	double		fov;	
-}				t_config
+}				t_config;
+/*
+ ** function
+*/
+
+int			FINT(double x);
+bool		CHECK_TOP(t_pos *p);
+bool		CHECK_BOT(t_pos *p, t_config *c);
+bool		MAP(t_pos *p, t_config *c);
+bool		IN_MAP(t_pos *p, t_config *c);
+bool		MAP_XY(double x, double y, t_config *c);

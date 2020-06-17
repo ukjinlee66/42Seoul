@@ -6,9 +6,14 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 19:39:55 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/14 21:47:39 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/17 18:59:18 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# include <stdlib.h>
+# include "config.h"
+# include "../cub3d.h"
+# include "../engine/engine.h"
 
 void		init_config(t_config *config)
 {
@@ -74,5 +79,11 @@ int			parse_config(t_config *config, char *path)
 		free(line);
 	}
 	if (ret && ft_strlen(line) > 0)
-		ret = 
+		ret = !!str_add_back(&buff, ft_strdup(line));
+	free(line);
+	close(fd);
+	if (!r || !parse_map(config, buff))
+		return (str_clear(&buff));
+	str_clear(&buff);
+	return (1);
 }

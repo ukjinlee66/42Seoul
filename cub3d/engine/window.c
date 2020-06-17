@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 19:04:02 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/12 19:04:06 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/17 20:08:00 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		clear_window(t_win *window)
 	return (0);
 }
 
-int		init_image(t_window *window, t_img *img)
+int		init_image(t_win *window, t_img *img)
 {
 	if (!(img->img = mlx_new_image(window->ptr, window->size.x, window->size.y)))
 		return (0);
@@ -29,6 +29,36 @@ int		init_image(t_window *window, t_img *img)
 	return (1);
 }
 
-int		init_window(t_window *window, t_config *config)
+int		init_window(t_win *window, t_config *config)
 {
+	window->size.x = window->size.x > 1920 ? 1920 : window->size.x;
+	window->size.y = window->size.y > 1080 ? 1080 : window->size.y;
+	window->size.x = window->size.x < 848 ? 848 : window->size.x;
+	window->size.y = window->size.y < 480 ? 480 : window->size.y;
 
+	window->ptr = NULL;
+	window->win = NULL;
+	window->ratio = window->size.x / window->size.y;
+	window->screen.img = NULL;
+	if (window->ratio < BEST_RATIO)
+		config->fov = config->fov / ((BEST_RATIO / config->fov) / 2.5);
+	else if (window->ratio > BEST_RATIO)
+		config->fov = config->fov * ((config->fov / BEST_RATIO) * 2.5);
+	if (!(window->ptr = mlx_init())
+			|| !(window->win = mlx_new_window(
+					window->ptr, window->size.x, window->size.y, 
+					"cub3d")))
+		return (0);
+	set_pos(&window->half, window->size.x / 2, window->size.y / 2);
+	if (!init_image(window, &window->screen))
+		return (0);
+	return (1);
+}
+
+void	update_window(t_game *game)
+{
+	t_window		*w;
+
+	w = &game->window;
+	mlx_put_image_to_window(w->ptr, w->win, w->screen.img, 0, 0);
+}

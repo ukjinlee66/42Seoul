@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   util2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/15 14:03:48 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/15 14:08:27 by youlee           ###   ########.fr       */
+/*   Created: 2020/06/17 19:33:23 by youlee            #+#    #+#             */
+/*   Updated: 2020/06/17 20:22:20 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "mlx.h"
+#include "config.h"
+#include <math.h>
+#include <stdbool.h>
 
-int main(void)
+bool		IN_MAP(t_pos *p, t_config *c)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		width;
-	int		height;
+	return (CHECK_TOP(p) && CHECK_BOT(p, c));
+}
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 1000, 1000, "dd");
-	img = mlx_xpm_file_to_image(mlx, "./textures/dd.xpm", &width, &height);
-	mlx_put_image_to_window(mlx, win, img, 100, 100);
-	mlx_loop(mlx);
-	return (0);
+bool		MAP(t_pos *p, t_config *c)
+{
+	return ((c).map[(FINT(p->y) * (c)->columns) + FINT(p->x)]);
+}
+
+bool		MAP_XY(double x, double y, t_config *c)
+{
+	return ((c)->map[(FINT(y) * (c)->columns) + FINT(x)]);
 }

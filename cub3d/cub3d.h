@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 19:03:08 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/15 14:44:25 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/17 19:40:19 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define CUB3D_H
 
 #include "Libft/libft.h"
-#include "engine/engine.h"
-#include "config.h"
+#include "./engine/engine.h"
+#include "./config/config.h"
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -124,5 +124,9 @@ typedef	struct		s_game
 	double			cos[2];
 	double			sin[2];
 }					t_game;
+
+/*
+ ** source **
+*/
 
 #endif

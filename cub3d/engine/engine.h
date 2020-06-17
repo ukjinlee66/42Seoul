@@ -6,7 +6,7 @@
 /*   By: youlee <youlee@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 20:06:06 by youlee            #+#    #+#             */
-/*   Updated: 2020/06/15 15:22:40 by youlee           ###   ########.fr       */
+/*   Updated: 2020/06/17 18:32:05 by youlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ENGINE_H
 
 # include "../cub3d.h"
+# include "../config/config.h"
 # include <math.h>
 
 # define X_EVENT_KEY_PRESS		2
